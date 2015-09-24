@@ -222,7 +222,7 @@ Configure::write('Routing.prefixes', array('admin'));
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'bersamakamuluarbiasabersamaakubiasaaja');
+	Configure::write('Security.salt', '$2a$07$usesomesillystringfore2uDLvp1Ii2e./U9C8sBjqp8I90dH6hi');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
