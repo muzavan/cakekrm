@@ -7,16 +7,7 @@
 			<th><?php echo $this->Paginator->sort('nama_lembaga'); ?></th>
 			<th><?php echo $this->Paginator->sort('nama_proker'); ?></th>
 			<th><?php echo $this->Paginator->sort('deskripsi_proker'); ?></th>
-			<th><?php echo $this->Paginator->sort('kategori'); ?></th>
-			<th><?php echo $this->Paginator->sort('sasaran'); ?></th>
-			<th><?php echo $this->Paginator->sort('output'); ?></th>
-			<th><?php echo $this->Paginator->sort('waktu'); ?></th>
-			<th><?php echo $this->Paginator->sort('rencana_anggaran'); ?></th>
-			<th><?php echo $this->Paginator->sort('lokasi'); ?></th>
-			<th><?php echo $this->Paginator->sort('lat'); ?></th>
-			<th><?php echo $this->Paginator->sort('lng'); ?></th>
-			<th><?php echo $this->Paginator->sort('created_at'); ?></th>
-			<th><?php echo $this->Paginator->sort('updated_at'); ?></th>
+			<th><?php echo $this->Paginator->sort('kategori'); ?>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -27,16 +18,7 @@
 		<td><?php echo h($hmj['Hmj']['nama_lembaga']); ?>&nbsp;</td>
 		<td><?php echo h($hmj['Hmj']['nama_proker']); ?>&nbsp;</td>
 		<td><?php echo h($hmj['Hmj']['deskripsi_proker']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['kategori']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['sasaran']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['output']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['waktu']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['rencana_anggaran']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['lokasi']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['lat']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['lng']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['created_at']); ?>&nbsp;</td>
-		<td><?php echo h($hmj['Hmj']['updated_at']); ?>&nbsp;</td>
+		<td><?php echo h($kategoris[$hmj['Hmj']['kategori']]['nama_kategori']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $hmj['Hmj']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $hmj['Hmj']['id'])); ?>

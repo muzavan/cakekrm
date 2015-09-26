@@ -8,15 +8,7 @@
 			<th><?php echo $this->Paginator->sort('deskripsi_lembaga'); ?></th>
 			<th><?php echo $this->Paginator->sort('kategori'); ?></th>
 			<th><?php echo $this->Paginator->sort('alamat'); ?></th>
-			<th><?php echo $this->Paginator->sort('lat'); ?></th>
-			<th><?php echo $this->Paginator->sort('lng'); ?></th>
 			<th><?php echo $this->Paginator->sort('contact_person'); ?></th>
-			<th><?php echo $this->Paginator->sort('posisi'); ?></th>
-			<th><?php echo $this->Paginator->sort('nomor_telepon'); ?></th>
-			<th><?php echo $this->Paginator->sort('website'); ?></th>
-			<th><?php echo $this->Paginator->sort('media_sosial'); ?></th>
-			<th><?php echo $this->Paginator->sort('created_at'); ?></th>
-			<th><?php echo $this->Paginator->sort('updated_at'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -26,17 +18,9 @@
 		<td><?php echo h($komunita['Komunita']['id']); ?>&nbsp;</td>
 		<td><?php echo h($komunita['Komunita']['nama_lembaga']); ?>&nbsp;</td>
 		<td><?php echo h($komunita['Komunita']['deskripsi_lembaga']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['kategori']); ?>&nbsp;</td>
+		<td><?php echo h($kategoris[$komunita['Komunita']['kategori']]['nama_kategori']); ?>&nbsp;</td>
 		<td><?php echo h($komunita['Komunita']['alamat']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['lat']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['lng']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['contact_person']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['posisi']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['nomor_telepon']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['website']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['media_sosial']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['created_at']); ?>&nbsp;</td>
-		<td><?php echo h($komunita['Komunita']['updated_at']); ?>&nbsp;</td>
+		<td><?php echo h($komunita['Komunita']['contact_person']); echo ' <br/>(';echo h($komunita['Komunita']['nomor_telepon']); echo ')'; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $komunita['Komunita']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $komunita['Komunita']['id'])); ?>

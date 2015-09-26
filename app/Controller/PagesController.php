@@ -73,4 +73,8 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+
+	public function all(){
+		return $this->redirect(array('controller' => 'komunitas', 'action' => 'all'));
+	}
 }

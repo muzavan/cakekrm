@@ -23,7 +23,7 @@
 		</dd>
 		<dt><?php echo __('Kategori'); ?></dt>
 		<dd>
-			<?php echo h($hmj['Hmj']['kategori']); ?>
+			<?php echo h($kategoris[$hmj['Hmj']['kategori']]['nama_kategori']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Sasaran'); ?></dt>

@@ -1,5 +1,5 @@
 <?php
-	$result = [];
+	$result = array();
 	foreach($hmjs as $hmj){
 		array_push($result,$hmj);
 	}

@@ -50,7 +50,8 @@ class AppController extends Controller {
                     'passwordHasher' => 'Blowfish'
                 )
             )
-        )
+        ),
+        'Paginator',
     );
 
     public function beforeFilter() {

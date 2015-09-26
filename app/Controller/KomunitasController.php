@@ -13,7 +13,7 @@ class KomunitasController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Kategori','Komunita');
+	public $uses = array('Komunita','Kategori');
 
 /**
  * index method
@@ -21,17 +21,23 @@ class KomunitasController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->set('komunitas', $this->Komunita->find('all'));
+		$this->Komunita->recursive = 0;
+		$this->set('komunitas', $this->Paginator->paginate());
+		$kategori = array();
+		foreach($this->Kategori->find('all') as $kateg){
+			$kategori[] = $kateg['Kategori']; 
+		}
+		$this->set('kategoris',$kategori);
 	}
 
 	public function api(){
 		$this->layout = false;
-		$kategori = [];
+		$kategori = array();
 		foreach($this->Kategori->find('all') as $kateg){
 			$kategori[$kateg['Kategori']['id']] = $kateg['Kategori']['link_gambar']; 
 		}
 		$komunitas = $this->Komunita->find('all');
-		$all = [];
+		$all = array();
 		foreach($komunitas as $komunita){
 			$id = $komunita['Komunita']['id'];
 			$all[$id] = $komunita['Komunita'];
@@ -42,7 +48,7 @@ class KomunitasController extends AppController {
 
 	public function all(){
 		$this->layout = false;
-		$kategori = [];
+		$kategori = array();
 		foreach($this->Kategori->find('all') as $kateg){
 			$kategori[] = $kateg['Kategori']; 
 		}
@@ -62,6 +68,11 @@ class KomunitasController extends AppController {
 		}
 		$options = array('conditions' => array('Komunita.' . $this->Komunita->primaryKey => $id));
 		$this->set('komunita', $this->Komunita->find('first', $options));
+		$kategori = array();
+		foreach($this->Kategori->find('all') as $kateg){
+			$kategori[] = $kateg['Kategori']; 
+		}
+		$this->set('kategoris',$kategori);
 	}
 
 /**

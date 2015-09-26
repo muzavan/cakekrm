@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Kategori'); ?></dt>
 		<dd>
-			<?php echo h($komunita['Komunita']['kategori']); ?>
+			<?php echo h($kategoris[$komunita['Komunita']['kategori']]['nama_kategori']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Alamat'); ?></dt>

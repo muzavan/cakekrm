@@ -13,8 +13,7 @@ class HmjsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator','RequestHandler');
-	public $uses = array('Kategori','Hmj');
+	public $uses = array('Hmj','Kategori');
 
 /**
  * index method
@@ -23,17 +22,22 @@ class HmjsController extends AppController {
  */
 	public function index() {
 		$this->Hmj->recursive = 0;
-		$this->set('hmjs', $this->Hmj->find('all'));
+		$this->set('hmjs', $this->Paginator->paginate());
+		$kategori = array();
+		foreach($this->Kategori->find('all') as $kateg){
+			$kategori[] = $kateg['Kategori']; 
+		}
+		$this->set('kategoris',$kategori);
 	}
 
 	public function api(){
 		$this->layout = false;
-		$kategori = [];
+		$kategori = array();
 		foreach($this->Kategori->find('all') as $kateg){
 			$kategori[$kateg['Kategori']['id']] = $kateg['Kategori']['link_gambar']; 
 		}
 		$hmjs = $this->Hmj->find('all');
-		$all = [];
+		$all = array();
 		foreach($hmjs as $hmj){
 			$id = $hmj['Hmj']['id'];
 			$all[$id] = $hmj['Hmj'];
@@ -44,7 +48,7 @@ class HmjsController extends AppController {
 
 	public function all(){
 		$this->layout = false;
-		$kategori = [];
+		$kategori = array();
 		foreach($this->Kategori->find('all') as $kateg){
 			$kategori[] = $kateg['Kategori']; 
 		}
@@ -64,6 +68,11 @@ class HmjsController extends AppController {
 		}
 		$options = array('conditions' => array('Hmj.' . $this->Hmj->primaryKey => $id));
 		$this->set('hmj', $this->Hmj->find('first', $options));
+		$kategori = array();
+		foreach($this->Kategori->find('all') as $kateg){
+			$kategori[] = $kateg['Kategori']; 
+		}
+		$this->set('kategoris',$kategori);
 	}
 
 /**

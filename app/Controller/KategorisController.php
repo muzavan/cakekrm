@@ -13,7 +13,7 @@ class KategorisController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator','RequestHandler');
+	//public $components = array('Paginator','RequestHandler');
 
 /**
  * index method

@@ -1,5 +1,5 @@
 <?php
-	$result = [];
+	$result = array();
 	foreach($kategoris as $kategori){
 		array_push($result,$kategori['Kategori']);
 	}

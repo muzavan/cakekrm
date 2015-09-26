@@ -1,5 +1,5 @@
 <?php
-	$result = [];
+	$result = array();
 
 	foreach($komunitas as $komunita){
 		array_push($result,$komunita);
