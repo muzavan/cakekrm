@@ -109,4 +109,13 @@ class KategorisController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+	public function export() {
+		Router::parseExtensions('csv');
+		$this->response->download("kategoris.csv");
+		$data = $this->Kategori->find('all');
+		$this->set(compact('data'));
+		$this->layout = 'ajax';
+		return;
+	}
+
 }

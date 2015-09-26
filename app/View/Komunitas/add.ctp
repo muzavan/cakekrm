@@ -62,8 +62,8 @@
 	        google.maps.event.addListener(map,'click',function(e) {
 	        var pos= new google.maps.LatLng(e.latLng.A,e.latLng.F);
 	            newMarker.setPosition(pos);
-	            $('#KomunitaLat').val(e.latLng.A.toFixed(5));
-	            $('#KomunitaLng').val(e.latLng.F.toFixed(5));
+	            $('#KomunitaLat').val(e.latLng.A.toFixed(6));
+	            $('#KomunitaLng').val(e.latLng.F.toFixed(6));
 	        });
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);

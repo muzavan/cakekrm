@@ -143,4 +143,28 @@ class KomunitasController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+	public function export() {
+		Router::parseExtensions('csv');
+		$this->response->download("komunitas.csv");
+		$data = $this->Komunita->find('all');
+		$this->set(compact('data'));
+		$this->layout = 'ajax';
+		return;
+	}
+
+	public function search($keyword = null){
+		$this->layout = 'ajax';
+		$hsl = $this->Komunita->find('all',array(
+			'conditions' => array(
+				'OR' => array(
+					'Komunita.nama_lembaga like ' => "%".$keyword."%",
+					'Komunita.deskripsi_lembaga like ' => "%".$keyword."%",
+					'Komunita.alamat like ' => "%".$keyword."%",
+					),
+
+			),
+		));
+		$this->set('komunitas',$hsl);
+	}
+
 }

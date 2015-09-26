@@ -38,17 +38,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<div id="container">
 		<div id="header">
 			<h1>
-			<?php echo $this->Html->link('Komunitas', array('controller' => 'komunitas','action' => 'index'));
-			?>
-			|
-			<?php echo $this->Html->link('Hmjs', array('controller' => 'hmjs','action' => 'index'));
-			?>
-			|
-			<?php echo $this->Html->link('Kategori', array('controller' => 'kategoris','action' => 'index'));
-			?>
-			|
-			<?php echo $this->Html->link('Logout', array('controller' => 'users','action' => 'logout'));
-			?>
+			ADMIN LOGIN
 			</h1>
 		</div>
 		<div id="content">
@@ -65,10 +55,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				);
 			?>
 			<p>
-				<?php echo $cakeVersion; ?>
 			</p>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

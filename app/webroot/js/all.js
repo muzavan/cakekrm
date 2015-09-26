@@ -41,7 +41,7 @@ function visualisasiData(mData){
 
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(datum.lat,datum.lng),
-      content : datum.nama_lembaga+ "<br/>"+datum.deskripsi_lembaga+ "<br/>"+ "Kontak : "+ datum.nomor_telepon + "| "+datum.contact_person+"("+datum.posisi+")<br/>",
+      content : "<b>"+datum.nama_lembaga+ "</b><br/>"+datum.deskripsi_lembaga+ "<br/>"+ "Kontak : "+ datum.nomor_telepon + "| "+datum.contact_person+"("+datum.posisi+")<br/>",
       icon : iconKategori,
       jumlah : 1,
     });

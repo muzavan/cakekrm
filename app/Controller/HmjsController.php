@@ -146,4 +146,28 @@ class HmjsController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+	public function export() {
+		Router::parseExtensions('csv');
+		$this->response->download("hmjs.csv");
+		$data = $this->Hmj->find('all');
+		$this->set(compact('data'));
+		$this->layout = 'ajax';
+		return;
+	}
+
+	public function search($keyword = null){
+		$this->layout = 'ajax';
+		$hsl = $this->Hmj->find('all',array(
+			'conditions' => array(
+				'OR' => array(
+					'Hmj.nama_lembaga like ' => "%".$keyword."%",
+					'Hmj.nama_proker like ' => "%".$keyword."%",
+					'Hmj.deskripsi_proker like ' => "%".$keyword."%",
+					),
+
+			),
+		));
+		$this->set('hmjs',$hsl);
+	}
+
 }
